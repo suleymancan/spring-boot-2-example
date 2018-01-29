@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Beans</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<h2>beans Count:</h2>
+<h2 th:text="${beansCount}"/>
+<table class="table">
+    <thead>
+    <tr>
+        <th>BeanName:</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <!-- Uygulamadaki tüm bean'ler -->
+    <tr th:each="bean: ${beans}">
+        <td th:text="*{bean}"></td>
+
+
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

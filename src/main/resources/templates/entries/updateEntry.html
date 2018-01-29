@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Post</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+<!-- model attribute'ın objesini th:object ile getiriyoruz. -->
+<!-- th:action da hardcoded yazdıgımızı thymeleaf'a bildirmis olduk. -->
+<form th:object="${entry}" method="post" th:action="@{'/blog/'+${entry.id}+'/update'}">
+    <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" th:field="*{title}" th:value="*{title}" name="title"  id="title">
+    </div>
+    <!-- th value ile  alanları dolu getirdik.-->
+    <div class="form-group">
+    <label for="body">Body</label>
+    <textarea type="text" class="form-control" th:field="*{body}" th:value="*{body}" name="body" id="body"/>
+    </div>
+
+    <div class="form-group">
+    <label for="writer"></label>
+    Writer: <input type="text" class="form-control" th:field="*{writer}" th:value="*{writer}" name="writer" id="writer"/>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
+
+
+</body>
+</html>
