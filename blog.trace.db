@@ -334,3 +334,109 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/suleym
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 89 more
+2018-01-29 11:19:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID INTEGER NOT NULL, ENTRY_ID INTEGER, USERNAME VARCHAR(255), PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id integer not null, entry_id integer, username varchar(255), primary key (id)) [42001-196]
+2018-01-29 11:19:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE POST_LIKES ADD CONSTRAINT FK9SMP6V8OTB51EM7OTDXJLIEIW FOREIGN KEY (LIKES_ID) REFERENCES LIKE[*] "; expected "identifier"; SQL statement:
+alter table post_likes add constraint FK9smp6v8otb51em7otdxjlieiw foreign key (likes_id) references like [42001-196]
+2018-01-29 11:20:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID INTEGER NOT NULL, ENTRY_ID INTEGER, USERNAME VARCHAR(255), PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id integer not null, entry_id integer, username varchar(255), primary key (id)) [42001-196]
+2018-01-29 11:20:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE LIKE[*] ADD CONSTRAINT FKIRFB8ACE0NFRX9EM9UW96LWC8 FOREIGN KEY (ID) REFERENCES POST "; expected "identifier"; SQL statement:
+alter table like add constraint FKirfb8ace0nfrx9em9uw96lwc8 foreign key (id) references post [42001-196]
+2018-01-29 11:22:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID INTEGER NOT NULL, ENTRY_ID INTEGER, USERNAME VARCHAR(255), PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id integer not null, entry_id integer, username varchar(255), primary key (id)) [42001-196]
+2018-01-29 11:25:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LIKE[*] (ID INTEGER NOT NULL, ENTRY_ID INTEGER, USERNAME VARCHAR(255), PRIMARY KEY (ID)) "; expected "identifier"; SQL statement:
+create table like (id integer not null, entry_id integer, username varchar(255), primary key (id)) [42001-196]
+2018-01-29 11:32:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Table "TABLE" not found; SQL statement:
+DELETE TABLE  POST_LIKES [42102-196]
+2018-01-29 11:32:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DELETEPOST_LIKES[*]"; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+DELETEPOST_LIKES [42001-196]
+2018-01-29 12:00:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "POST_LIKES[*]"; expected "PREPARE, {"; SQL statement:
+POST_LIKES [42001-196]
+2018-01-29 12:13:39 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Table "POSTS_LIKES" not found; SQL statement:
+DROP TABLE POSTS_LIKES [42102-196]
+2018-01-29 12:13:43 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Table "POSTS_LIKES" not found; SQL statement:
+DROP TABLE POSTS_LIKES [42102-196]
+2018-01-29 12:22:33 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE LIKES
+DROP[*] TABLE ENTRIES "; SQL statement:
+Drop table LIKES
+DROP TABLE ENTRIES [42000-196]
+2018-01-29 12:22:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE LIKES
+DROP[*] TABLE ENTRIES "; SQL statement:
+Drop table LIKES
+DROP TABLE ENTRIES [42000-196]
+2018-01-29 12:52:28 jdbc[16]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-196]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:185)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:127)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:459)
+	at com.zaxxer.hikari.pool.HikariPool.access$200(HikariPool.java:70)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:682)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 19 more
+2018-01-29 12:52:28 jdbc[16]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-196]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:185)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:127)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:459)
+	at com.zaxxer.hikari.pool.HikariPool.access$200(HikariPool.java:70)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:682)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 19 more
+2018-01-29 14:24:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "BODY VARCHAR(255)": "STRINGDECODE('Lorem Ipsum, dizgi ve bask\u0131 end\u00fcstrisinde kullan\u0131lan m\u0131g\u0131r metinlerdir. Lorem Ipsum, ad\u... (590)"; SQL statement:
+insert into entries (body, create_date, is_deleted, title, wri̇ter, id) values (?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-29 14:24:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "BODY VARCHAR(255)": "STRINGDECODE('Lorem Ipsum, dizgi ve bask\u0131 end\u00fcstrisinde kullan\u0131lan m\u0131g\u0131r metinlerdir. Lorem Ipsum, ad\u... (590)"; SQL statement:
+insert into entries (body, create_date, is_deleted, title, wri̇ter, id) values (?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-29 14:24:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "BODY VARCHAR(255)": "STRINGDECODE('Lorem Ipsum, dizgi ve bask\u0131 end\u00fcstrisinde kullan\u0131lan m\u0131g\u0131r metinlerdir. Lorem Ipsum, ad\u... (590)"; SQL statement:
+insert into entries (body, create_date, is_deleted, title, wri̇ter, id) values (?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-29 14:25:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "BODY VARCHAR(255)": "STRINGDECODE('Lorem Ipsum, dizgi ve bask\u0131 end\u00fcstrisinde kullan\u0131lan m\u0131g\u0131r metinlerdir. Lorem Ipsum, ad\u... (590)"; SQL statement:
+insert into entries (body, create_date, is_deleted, title, wri̇ter, id) values (?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-29 14:25:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "BODY VARCHAR(255)": "STRINGDECODE('Lorem Ipsum, dizgi ve bask\u0131 end\u00fcstrisinde kullan\u0131lan m\u0131g\u0131r metinlerdir. Lorem Ipsum, ad\u... (272)"; SQL statement:
+insert into entries (body, create_date, is_deleted, title, wri̇ter, id) values (?, ?, ?, ?, ?, ?) [22001-196]

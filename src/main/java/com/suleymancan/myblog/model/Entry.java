@@ -3,17 +3,20 @@ package com.suleymancan.myblog.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "POST")
+@Table(name = "ENTRIES")
 public class Entry {
 
     @Id
@@ -31,6 +34,7 @@ public class Entry {
 
     @NotNull
     @Column(name = "CREATE_DATE")
+   // @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate createDate = LocalDate.now();
 
     @NotEmpty
@@ -40,6 +44,14 @@ public class Entry {
 
     @Column(name = "IS_DELETED")
     private Boolean isDeleted;
+
+    //orphanRemoval, likeları da siler.
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ENTRY_ID")
+    List<Like> likes=new ArrayList<>();
+
+    @ManyToMany
+    private List<Category> categories;
 }
 
 

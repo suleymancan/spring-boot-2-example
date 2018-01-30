@@ -1,6 +1,7 @@
 package com.suleymancan.myblog.controller;
 
 import com.suleymancan.myblog.model.Entry;
+import com.suleymancan.myblog.repository.CategoryRepository;
 import com.suleymancan.myblog.repository.EntryRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,12 +10,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -39,7 +38,13 @@ public class HomeController {
         return"allBeans/beans";
     }
 
+    @GetMapping("/login")
+    public String getLoginPage(){
+        return "login";
+    }
 
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @Autowired
     private EntryRepository entryRepoitory;
@@ -47,7 +52,9 @@ public class HomeController {
     @RequestMapping(value="",method = RequestMethod.GET)
     public String getIndex(Model model){
         Iterable<Entry>entries=entryRepoitory.findAll();
+        Iterable<Entry>todaysEntries=entryRepoitory.findByCreateDate(LocalDate.now());
         model.addAttribute("entries",entries);
+        model.addAttribute("todaysEntries",todaysEntries);
 
         return "entries/listEntries";
     }
@@ -55,7 +62,7 @@ public class HomeController {
     @RequestMapping(value="/new",method= RequestMethod.GET)
     public String getEntryForm(Model model){
     model.addAttribute("entry",new Entry());
-
+    model.addAttribute("categories",categoryRepository.findAll());
 
     return "entries/newEntry";
 }
@@ -99,6 +106,7 @@ public class HomeController {
             }
             else{
                 model.addAttribute("entry",entryOptional.get());
+                model.addAttribute("categories",categoryRepository.findAll());
                 return "entries/updateEntry";
             }
 
@@ -127,7 +135,4 @@ public class HomeController {
                     return "redirect:/blog";
                 }
             }
-
-
-
 }

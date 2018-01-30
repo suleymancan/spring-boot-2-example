@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="navbar">
+<th:block layout:fragment="content">
 <head>
     <meta charset="UTF-8">
     <title>Show Post</title>
 </head>
 <body>
+<div class="row">
+    <div class="col-2">
+        <form method="post" th:action="@{'/blog/'+${entry.id}+'/delete'}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
 
-<form method="post" th:action="@{'/blog/'+${entry.id}+'/delete'}">
-<button type="submit">Delete</button>
-</form>
+    <div class="col-8">
+
+    </div>
+
+    <div class="col-2">
+    <a class="btn btn-success" th:href="@{'/blog/'+${entry.id}+'/update'}">Update</a>
+    </div>
+
+</div>
+
         <table class="table">
         <thead>
         <tr>
@@ -29,4 +43,5 @@
     </table>
 
 </body>
+</th:block>
 </html>
